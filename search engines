@@ -1,0 +1,45 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SimpleSearchEngine {
+    public static void main(String[] args) {
+        // Create a list of items to search through
+        ArrayList<String> items = new ArrayList<>();
+        items.add("apple");
+        items.add("banana");
+        items.add("orange");
+        items.add("grape");
+        items.add("pear");
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Welcome to Simple Search Engine!");
+        System.out.println("Enter 'quit' to exit.");
+        
+        while (true) {
+            System.out.print("Enter search query: ");
+            String query = scanner.nextLine().toLowerCase();
+            
+            if (query.equals("quit")) {
+                System.out.println("Exiting...");
+                break;
+            }
+            
+            boolean found = false;
+            for (String item : items) {
+                if (item.contains(query)) {
+                    System.out.println("Found: " + item);
+                    found = true;
+                }
+            }
+            
+            if (!found) {
+                System.out.println("No matching items found.");
+            }
+        }
+        
+        scanner.close();
+    }
+}
+
