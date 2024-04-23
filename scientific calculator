@@ -1,0 +1,90 @@
+
+import java.util.Scanner;
+
+public class ScientificCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double result = 0;
+        
+        System.out.println("Welcome to the Scientific Calculator!");
+        System.out.println("Available operations:");
+        System.out.println("+ : Addition");
+        System.out.println("- : Subtraction");
+        System.out.println("* : Multiplication");
+        System.out.println("/ : Division");
+        System.out.println("sqrt : Square Root");
+        System.out.println("^ : Power");
+        System.out.println("sin : Sine");
+        System.out.println("cos : Cosine");
+        System.out.println("tan : Tangent");
+        System.out.println("Type 'quit' to exit.");
+        
+        while (true) {
+            System.out.print("Enter operation: ");
+            String operation = scanner.next();
+            
+            if (operation.equals("quit")) {
+                System.out.println("Exiting...");
+                break;
+            }
+            
+            if (!operation.equals("sqrt") && !operation.equals("sin") && !operation.equals("cos") && !operation.equals("tan")) {
+                System.out.print("Enter first operand: ");
+                double operand1 = scanner.nextDouble();
+                
+                System.out.print("Enter second operand: ");
+                double operand2 = scanner.nextDouble();
+                
+                switch (operation) {
+                    case "+":
+                        result = operand1 + operand2;
+                        break;
+                    case "-":
+                        result = operand1 - operand2;
+                        break;
+                    case "*":
+                        result = operand1 * operand2;
+                        break;
+                    case "/":
+                        if (operand2 != 0) {
+                            result = operand1 / operand2;
+                        } else {
+                            System.out.println("Error: Division by zero!");
+                        }
+                        break;
+                    case "^":
+                        result = Math.pow(operand1, operand2);
+                        break;
+                    default:
+                        System.out.println("Invalid operation!");
+                        continue;
+                }
+            } else {
+                System.out.print("Enter operand: ");
+                double operand = scanner.nextDouble();
+                
+                switch (operation) {
+                        case "sqrt":
+                        result = Math.sqrt(operand);
+                        break;
+                    case "sin":
+                        result = Math.sin(Math.toRadians(operand));
+                        break;
+                    case "cos":
+                        result = Math.cos(Math.toRadians(operand));
+                        break;
+                    case "tan":
+                        result = Math.tan(Math.toRadians(operand));
+                        break;
+                    default:
+                        System.out.println("Invalid operation!");
+                        continue;
+                }
+            }
+            
+            System.out.println("Result: " + result);
+        }
+        
+        scanner.close();
+    }
+}
