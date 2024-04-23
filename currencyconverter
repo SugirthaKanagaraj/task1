@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class CurrencyConverter 
+{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Exchange rates
+        double usdToEur = 0.84;
+        double usdToGbp = 0.72;
+        double usdToJpy = 113.85;
+        
+        // Get input from user
+        System.out.print("Enter the amount in USD: ");
+        double amountInUsd = scanner.nextDouble();
+        
+        // Convert to other currencies
+        double amountInEur = amountInUsd * usdToEur;
+        double amountInGbp = amountInUsd * usdToGbp;
+        double amountInJpy = amountInUsd * usdToJpy;
+        
+        // Display results
+        System.out.println("Amount in EUR: " + amountInEur);
+        System.out.println("Amount in GBP: " + amountInGbp);
+        System.out.println("Amount in JPY: " + amountInJpy);
+        
+        scanner.close();
+    }
+}
